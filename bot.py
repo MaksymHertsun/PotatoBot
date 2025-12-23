@@ -11,7 +11,7 @@ from telegram.ext import (
     ContextTypes
 )
 
-TOKEN = "7816592981:AAGdJDL8F9WF7QvNsNOeZG7E1iONuIEy_2o"
+TOKEN = os.getenv("TOKEN")
 
 # ===== ДЕФІЦИТИ =====
 ELEMENTS = ["N", "K", "Mg", "P", "Ca"]
