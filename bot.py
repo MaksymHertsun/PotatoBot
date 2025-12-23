@@ -114,13 +114,20 @@ async def show_result(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Рекомендується підтвердження аналізом або оглядом."
     )
 
-        keyboard = ReplyKeyboardMarkup([["Почати заново"]], resize_keyboard=True, one_time_keyboard=True)
+    await update.message.reply_text(text, parse_mode="Markdown")
+
+    # ------------------------
+    # Кнопка "Почати заново"
+    # ------------------------
+    keyboard = ReplyKeyboardMarkup(
+        [["Почати заново"]],
+        resize_keyboard=True,
+        one_time_keyboard=True
+    )
     await update.message.reply_text(
-        "\nДля повторного запуску натисніть кнопку нижче.",
+        "Для повторного запуску натисніть кнопку нижче.",
         reply_markup=keyboard
     )
-
-    await update.message.reply_text(text, parse_mode="Markdown")
 
 # =========================
 # ЗАПУСК
