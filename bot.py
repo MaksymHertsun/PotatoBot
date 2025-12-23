@@ -87,9 +87,19 @@ telegram_app.add_handler(CommandHandler("start", start))
 telegram_app.add_handler(CommandHandler("diagnose", diagnose))
 telegram_app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_answer))
 
+
+#@app.route("/", methods=["POST"])
+#async def webhook():
+#    update = Update.de_json(request.get_json(force=True), telegram_app.bot)
+#    await telegram_app.process_update(update)
+#    return "ok" 
+
 @app.route("/", methods=["POST"])
 async def webhook():
-    update = Update.de_json(request.get_json(force=True), telegram_app.bot)
+    data = request.get_json(force=True)
+    print("INCOMING UPDATE:", data)
+
+    update = Update.de_json(data, telegram_app.bot)
     await telegram_app.process_update(update)
     return "ok"
 
