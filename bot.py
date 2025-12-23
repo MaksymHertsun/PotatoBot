@@ -65,6 +65,10 @@ async def ask_question(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def handle_answer(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text
 
+    if text == "Почати заново":
+        await start(update, context)
+        return
+
     if text not in ["Так", "Ні"]:
         return
 
@@ -108,6 +112,12 @@ async def show_result(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text += (
         "\nℹ️ Це експертна оцінка на основі симптомів.\n"
         "Рекомендується підтвердження аналізом або оглядом."
+    )
+
+        keyboard = ReplyKeyboardMarkup([["Почати заново"]], resize_keyboard=True, one_time_keyboard=True)
+    await update.message.reply_text(
+        "\nДля повторного запуску натисніть кнопку нижче.",
+        reply_markup=keyboard
     )
 
     await update.message.reply_text(text, parse_mode="Markdown")
