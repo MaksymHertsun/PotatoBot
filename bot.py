@@ -109,10 +109,10 @@ def health():
 
 # ---------- MAIN ----------
 
-async def setup():
-    await telegram_app.bot.set_webhook(WEBHOOK_URL)
+@app.route("/set_webhook", methods=["GET"])
+def set_webhook():
+    telegram_app.bot.set_webhook(WEBHOOK_URL)
+    return "Webhook set"
 
 if __name__ == "__main__":
-    import asyncio
-    asyncio.run(setup())
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
