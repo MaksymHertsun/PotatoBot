@@ -11,8 +11,8 @@ from telegram.ext import (
 # =========================
 # НАЛАШТУВАННЯ
 # =========================
-TOKEN = "ВСТАВ_СЮДИ_ТОКЕН"
-WEBHOOK_URL = "https://твій-домен.onrender.com/webhook"
+TOKEN = os.environ.get("BOT_TOKEN")
+WEBHOOK_URL = "https://potatobot-18ot.onrender.com/webhook"
 PORT = 10000
 
 # =========================
