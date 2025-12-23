@@ -1,0 +1,72 @@
+crop: potato
+
+symptoms:
+  yellow_lower:
+    question: "Чи жовтіє нижнє (старе) листя?"
+
+  pale_young:
+    question: "Чи світлішає або блідне молоде листя?"
+
+  purple_leaf:
+    question: "Чи зʼявляється фіолетовий або червонуватий відтінок на листі чи стеблах?"
+
+  dry_edges:
+    question: "Чи підсихають або буріють краї листків?"
+
+  leaf_curl:
+    question: "Чи скручується листя догори або донизу?"
+
+  weak_growth:
+    question: "Чи спостерігається повільний ріст рослин?"
+
+  thin_stems:
+    question: "Чи тонкі та слабкі стебла?"
+
+  necrotic_spots:
+    question: "Чи є дрібні некротичні (мертві) плями на листках?"
+
+  interveinal_chlorosis:
+    question: "Чи жовтіє лист між жилками, а жилки залишаються зеленими?"
+
+  leaf_deformation:
+    question: "Чи деформується молоде листя?"
+
+rules:
+  nutrition:
+    nitrogen:
+      name: "Азот (N)"
+      weights:
+        yellow_lower: 3
+        weak_growth: 2
+        thin_stems: 2
+
+    phosphorus:
+      name: "Фосфор (P)"
+      weights:
+        purple_leaf: 3
+        weak_growth: 2
+
+    potassium:
+      name: "Калій (K)"
+      weights:
+        dry_edges: 3
+        leaf_curl: 2
+        necrotic_spots: 1
+
+    magnesium:
+      name: "Магній (Mg)"
+      weights:
+        interveinal_chlorosis: 3
+        yellow_lower: 1
+
+    calcium:
+      name: "Кальцій (Ca)"
+      weights:
+        leaf_deformation: 3
+        pale_young: 2
+
+    sulfur:
+      name: "Сірка (S)"
+      weights:
+        pale_young: 3
+        weak_growth: 1
