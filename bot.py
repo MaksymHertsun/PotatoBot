@@ -119,15 +119,15 @@ async def show_result(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # ------------------------
     # Кнопка "Почати заново"
     # ------------------------
-keyboard = ReplyKeyboardMarkup(
-    [["Почати заново"]],
-    resize_keyboard=True,
-    one_time_keyboard=True
-)
-await update.message.reply_text(
-    "Для повторного запуску натисніть кнопку нижче.",
-    reply_markup=keyboard
-)
+    keyboard = ReplyKeyboardMarkup(
+        [["Почати заново"]],
+        resize_keyboard=True,
+        one_time_keyboard=True
+    )
+    await update.message.reply_text(
+        "Для повторного запуску натисніть кнопку нижче.",
+        reply_markup=keyboard
+    )
 
 # =========================
 # ЗАПУСК
